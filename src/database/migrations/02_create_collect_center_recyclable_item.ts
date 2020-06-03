@@ -1,7 +1,7 @@
 import Knex from "knex";
 
 export async function up(knex: Knex) {
-  return knex.schema.createTable("collect_center_recyclabe_item", (table) => {
+  return knex.schema.createTable("collect_center_recyclable_item", (table) => {
     table.increments("id").primary();
 
     table
@@ -11,13 +11,13 @@ export async function up(knex: Knex) {
       .inTable("collect_center");
 
     table
-      .integer("recyclabe_item_id")
+      .integer("recyclable_item_id")
       .notNullable()
       .references("id")
-      .inTable("recyclabe_item ");
+      .inTable("recyclable_item ");
   });
 }
 
 export async function down(knex: Knex) {
-  return knex.schema.dropSchema("collect_center_recyclabe_item");
+  return knex.schema.dropSchema("collect_center_recyclable_item");
 }
