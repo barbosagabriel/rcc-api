@@ -12,7 +12,7 @@ class RecyclableItemsController {
       return {
         id: item.id,
         title: item.title,
-        image_url: `${process.env.API_HOST}:${process.env.PORT}/uploads/${item.image}`,
+        image_url: `${process.env.API_HOST}/uploads/${item.image}`,
       };
     });
 
