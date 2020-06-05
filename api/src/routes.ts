@@ -11,8 +11,8 @@ const recyclableItemsController = new RecyclableItemsController();
 
 routes.get("/recyclable-item", recyclableItemsController.index);
 
-routes.get("/collect-center", collectCentersController.index);
-routes.get("/collect-center/:id", collectCentersController.show);
-routes.post("/collect-center", collectCentersController.create);
+routes.get("/collection-center", collectCentersController.index);
+routes.get("/collection-center/:id", collectCentersController.show);
+routes.post("/collection-center", collectCentersController.create);
 
 export default routes;
