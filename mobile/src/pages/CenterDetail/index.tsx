@@ -26,6 +26,9 @@ interface CollectCenterData {
 }
 
 const CenterDetail = () => {
+  const MESSAGE_TEMPLATE =
+    "Hey! I am insterested in dispose some recyclable things and I would like to know...";
+
   const [centerData, setCenterData] = useState<CollectCenterData>(
     {} as CollectCenterData
   );
@@ -36,7 +39,7 @@ const CenterDetail = () => {
   const routeParams = route.params as RouteParams;
 
   useEffect(() => {
-    api.get(`collect-center/${routeParams.centerId}`).then((response) => {
+    api.get(`collection-center/${routeParams.centerId}`).then((response) => {
       setCenterData(response.data);
     });
   }, []);
@@ -47,14 +50,15 @@ const CenterDetail = () => {
 
   function handleComposeEmail() {
     MailComposer.composeAsync({
-      subject: "Recyclable waste collection",
+      subject: "Recyclable items to dispose",
       recipients: [centerData.email],
+      body: MESSAGE_TEMPLATE,
     });
   }
 
   function handleWhatsapp() {
     Linking.openURL(
-      `whatsapp://send?phone=${centerData.whatsapp}&text=Recyclable waste collection`
+      `whatsapp://send?phone=${centerData.whatsapp}&text=${MESSAGE_TEMPLATE}`
     );
   }
 

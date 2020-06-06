@@ -1,7 +1,11 @@
 import axios from "axios";
+import envVariables from "../../config/variables";
+
+//TODO REMOVE
+console.log(envVariables?.apiUrl);
 
 const api = axios.create({
-  baseURL: "http://192.168.15.6:3333",
+  baseURL: envVariables?.apiUrl,
 });
 
 export default api;

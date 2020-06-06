@@ -73,7 +73,7 @@ const CollectionCenters = () => {
 
   useEffect(() => {
     api
-      .get("collect-center", {
+      .get("collection-center", {
         params: {
           city: routeParams.city,
           state: routeParams.state,
@@ -87,6 +87,8 @@ const CollectionCenters = () => {
 
   useEffect(() => {
     api.get("recyclable-item").then((response) => {
+      const items = response.data as Item[];
+      setSelectedItems(items.map((item) => item.id));
       setItems(response.data);
     });
   }, []);
