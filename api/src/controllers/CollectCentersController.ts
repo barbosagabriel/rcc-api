@@ -22,7 +22,14 @@ class CollectCentersController {
       .distinct()
       .select("collect_center.*");
 
-    return res.json(collectCenters);
+    const serializedCenter = collectCenters.map((center) => {
+      return {
+        ...center,
+        image_url: `http://192.168.15.6:3333/uploads/${center.image}`,
+      };
+    });
+
+    return res.json(serializedCenter);
   }
 
   async show(req: Request, res: Response) {
@@ -46,7 +53,11 @@ class CollectCentersController {
       .where("collect_center_recyclable_item.collect_center_id", id)
       .select("recyclable_item.title");
 
-    return res.json({ ...collectCenter, items: recyclableItems });
+    return res.json({
+      ...collectCenter,
+      items: recyclableItems,
+      image_url: `http://192.168.15.6:3333/uploads/${collectCenter.image}`,
+    });
   }
 
   async create(req: Request, res: Response) {
@@ -66,8 +77,7 @@ class CollectCentersController {
 
       const collectCenter = {
         name,
-        image:
-          "https://images.unsplash.com/photo-1475275083424-b4ff81625b60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        image: req.file.filename,
         email,
         whatsapp,
         latitude,
@@ -80,18 +90,25 @@ class CollectCentersController {
 
       const collect_center_id = insertedIds[0];
 
-      const collectCenterItems = items.map((recyclable_item_id: number) => {
-        return {
-          recyclable_item_id,
-          collect_center_id,
-        };
-      });
+      const collectCenterItems = items
+        .split(",")
+        .map((item: string) => Number(item.trim()))
+        .map((recyclable_item_id: number) => {
+          return {
+            recyclable_item_id,
+            collect_center_id,
+          };
+        });
 
       await trx("collect_center_recyclable_item").insert(collectCenterItems);
 
       trx.commit();
 
-      return res.status(201).json({ id: collect_center_id, ...collectCenter });
+      return res.status(201).json({
+        ...collectCenter,
+        id: collect_center_id,
+        image_url: `http://192.168.15.6:3333/uploads/${collectCenter.image}`,
+      });
     } catch (error) {
       trx.rollback();
       console.log(error);

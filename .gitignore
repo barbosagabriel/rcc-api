@@ -48,3 +48,6 @@ web-report/
 #env
 .env
 
+#uploaded-files
+api/uploads/images/*
+
