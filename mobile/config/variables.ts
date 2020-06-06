@@ -4,12 +4,15 @@ export const prodUrl = "https://recycling-center-api.herokuapp.com";
 
 const ENV = {
   dev: {
+    environment: "DEV",
     apiUrl: "http://192.168.15.5:3333",
   },
   staging: {
+    environment: "STAGING",
     apiUrl: prodUrl,
   },
   prod: {
+    environment: "PROD",
     apiUrl: prodUrl,
   },
 };
