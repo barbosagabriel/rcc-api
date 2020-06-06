@@ -7,6 +7,8 @@ import { LeafletMouseEvent } from "leaflet";
 import api from "../../services/api";
 import locationsApi from "../../services/locationsApi";
 
+import Dropzone from "../../components/Dropzone";
+
 import "./styles.css";
 
 import logo from "../../assets/logo.svg";
@@ -48,6 +50,7 @@ const CreateCollectCenter = () => {
     0,
     0,
   ]);
+  const [selectedFile, setSelectedFile] = useState<File>();
 
   const history = useHistory();
 
@@ -76,7 +79,7 @@ const CreateCollectCenter = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedState == "0") return;
+    if (selectedState === "0") return;
 
     locationsApi
       .get<IBGECityResponse[]>(
@@ -128,18 +131,19 @@ const CreateCollectCenter = () => {
     const [latitude, longitude] = selectedPosition;
     const items = selectedItems;
 
-    const data = {
-      name,
-      email,
-      whatsapp,
-      latitude,
-      longitude,
-      city,
-      state,
-      items,
-    };
+    const data = new FormData();
+    data.append("name", name);
+    data.append("email", email);
+    data.append("whatsapp", whatsapp);
+    data.append("latitude", String(latitude));
+    data.append("longitude", String(longitude));
+    data.append("city", city);
+    data.append("state", state);
+    data.append("items", items.join(","));
 
-    api.post("collect-center", data);
+    if (selectedFile) data.append("image", selectedFile);
+
+    api.post("collection-center", data);
 
     alert("Collection Center created!");
 
@@ -159,6 +163,8 @@ const CreateCollectCenter = () => {
 
       <form onSubmit={handleSubmit}>
         <h1>Create collection center</h1>
+
+        <Dropzone onFileUploaded={setSelectedFile} />
 
         <fieldset>
           <legend>
