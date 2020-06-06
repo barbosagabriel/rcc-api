@@ -26,7 +26,7 @@ interface Item {
 interface CollectionCenter {
   id: number;
   name: string;
-  image: string;
+  image_url: string;
   latitude: number;
   longitude: number;
 }
@@ -145,7 +145,7 @@ const CollectionCenters = () => {
                     <Image
                       style={styles.mapMarkerImage}
                       source={{
-                        uri: center.image,
+                        uri: center.image_url,
                       }}
                     />
                     <Text style={styles.mapMarkerTitle}>{center.name}</Text>

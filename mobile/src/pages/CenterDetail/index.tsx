@@ -15,7 +15,7 @@ interface RouteParams {
 
 interface CollectCenterData {
   name: string;
-  image: string;
+  image_url: string;
   email: string;
   whatsapp: string;
   city: string;
@@ -72,7 +72,7 @@ const CenterDetail = () => {
         <Image
           style={styles.pointImage}
           source={{
-            uri: centerData.image,
+            uri: centerData.image_url,
           }}
         />
         <Text style={styles.pointName}>{centerData.name}</Text>
