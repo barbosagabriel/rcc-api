@@ -1,8 +1,5 @@
 import { Request, Response } from "express";
 import knex from "../database/connection";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 class RecyclableItemsController {
   async index(req: Request, res: Response) {

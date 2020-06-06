@@ -94,13 +94,60 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "description": "Pet object that needs to be added to the store",
+            "name": "name",
+            "in": "formData",
+            "description": "Collection Center name",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/CreateCollectionCenter"
-            }
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Collection Center e-mail address",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "whatsapp",
+            "in": "formData",
+            "description": "Collection Center whatsapp number",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "formData",
+            "description": "Collection Center city",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "formData",
+            "description": "Collection Center state",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "in": "formData",
+            "description": "Collection Center latitude",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "longitude",
+            "in": "formData",
+            "description": "Collection Center longitude",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "description": "Collection Center photo",
+            "required": true,
+            "type": "file"
           }
         ],
         "responses": {
@@ -174,39 +221,6 @@
           "type": "integer",
           "format": "int64"
         },
-        "name": {
-          "type": "string",
-          "example": "Supermarket X"
-        },
-        "email": {
-          "type": "string",
-          "example": "john@doe.com"
-        },
-        "whatsapp": {
-          "type": "string",
-          "example": "5531999908971"
-        },
-        "city": {
-          "type": "string",
-          "example": "Belo Horizonte"
-        },
-        "state": {
-          "type": "string",
-          "example": "MG"
-        },
-        "latitude": {
-          "type": "number",
-          "example": 47.32183213
-        },
-        "longitude": {
-          "type": "number",
-          "example": -12.98326139216
-        }
-      }
-    },
-    "CreateCollectionCenter": {
-      "type": "object",
-      "properties": {
         "name": {
           "type": "string",
           "example": "Supermarket X"

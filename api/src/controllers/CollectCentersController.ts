@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+
 import knex from "../database/connection";
 
 class CollectCentersController {
@@ -25,7 +26,7 @@ class CollectCentersController {
     const serializedCenter = collectCenters.map((center) => {
       return {
         ...center,
-        image_url: `http://192.168.15.6:3333/uploads/${center.image}`,
+        image_url: `${process.env.API_HOST}/uploads/images/${center.image}`,
       };
     });
 
@@ -56,7 +57,7 @@ class CollectCentersController {
     return res.json({
       ...collectCenter,
       items: recyclableItems,
-      image_url: `http://192.168.15.6:3333/uploads/${collectCenter.image}`,
+      image_url: `${process.env.API_HOST}/uploads/images/${collectCenter.image}`,
     });
   }
 
@@ -107,7 +108,7 @@ class CollectCentersController {
       return res.status(201).json({
         ...collectCenter,
         id: collect_center_id,
-        image_url: `http://192.168.15.6:3333/uploads/${collectCenter.image}`,
+        image_url: `${process.env.API_HOST}/uploads/images/${collectCenter.image}`,
       });
     } catch (error) {
       trx.rollback();
