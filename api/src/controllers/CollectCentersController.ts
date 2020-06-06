@@ -41,7 +41,7 @@ class CollectCentersController {
     if (!collectCenter) {
       return res
         .status(400)
-        .json({ message: `Collect Center not found with id ${id}` });
+        .json({ message: `Collection Center not found with id ${id}` });
     }
 
     const recyclableItems = await knex("recyclable_item")
@@ -114,7 +114,7 @@ class CollectCentersController {
       trx.rollback();
       console.log(error);
       return res.status(400).json({
-        message: "An unexpected error happened creating a collect center",
+        message: "An unexpected error happened creating a collection center",
       });
     }
   }
