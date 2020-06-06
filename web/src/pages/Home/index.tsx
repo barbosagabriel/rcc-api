@@ -15,13 +15,13 @@ const Home = () => {
         </header>
         <main>
           <h1>Your marketplace of waste collection</h1>
-          <p>We help people to find recycle collection centers efficiently</p>
+          <p>We help people to find recycling collection centers efficiently</p>
 
           <Link to="/create-center">
             <span>
               <FiLogIn />
             </span>
-            <strong>Create a collect center</strong>
+            <strong>Create a collection center</strong>
           </Link>
         </main>
       </div>
