@@ -40,7 +40,7 @@ const Home = () => {
               Your marketplace of waste collection
             </Text>
             <Text style={styles.description}>
-              We help people to find recycle collection centers efficiently
+              We help people to find recycling collection centers efficiently
             </Text>
           </View>
         </View>

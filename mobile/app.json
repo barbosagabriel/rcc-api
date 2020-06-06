@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "Recycling Centers",
+    "slug": "recycling-centers",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "An easy way to find recycling collection centers efficiently\n\n",
+    "githubUrl": "https://github.com/barbosagabriel/recycling-collection-centers"
   }
 }
