@@ -7,12 +7,10 @@
   That aims to connect people to companies that collect specific waste such as light bulbs, batteries, cooking oil to correctly dispose these items.
 </h5>
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/barbosagabriel/recycling-collection-centers?color=%2304D361">
-
   <a href="https://github.com/barbosagabriel/recycling-collection-centers/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/barbosagabriel/recycling-collection-centers">
   </a>
-
+  &nbsp;&nbsp;
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
 
@@ -36,7 +34,7 @@ Check out the [docs](https://recycling-center-api.herokuapp.com/docs/) and [try 
 
 Check on [Netlify](https://recycling-centers.netlify.app/)
 
-<h1 align="center">
+<h1 align="center" style="border-radius:10px" >
     <img alt="Web" src="markdown/web-preview.gif" width="900px">
 </h1>
 
@@ -45,7 +43,7 @@ Check on [Netlify](https://recycling-centers.netlify.app/)
 Download [Expo Client app](https://expo.io/tools#client) and scan the QR Code in this [page](https://expo.io/@barbosagabriel/recycling-centers) or try it out on [simulator](https://expo.io/appetize-simulator?url=https://expo.io/@barbosagabriel/recycling-centers)
 
 <h1 align="center">
-    <img alt="Web" src="markdown/mobile-preview.gif" height="400px">
+    <img alt="Mobile" style="border-radius:10px" src="markdown/mobile-preview.gif" height="400px">
 </h1>
 
 ## :rocket: Technologies
